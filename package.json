@@ -1,0 +1,11 @@
+{
+	"name": "emails",
+	"version": "1.0.0",
+	"dependencies": {
+		"@sendgrid/client": "^7.4.0",
+		"cheerio": "^1.0.0-rc.5",
+		"dotenv": "^8.2.0",
+		"mjml": "^4.8.1"
+	},
+	"private": true
+}

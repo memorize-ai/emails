@@ -1,0 +1,24 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+      - name: Set up Node
+        uses: actions/setup-node@main
+        with:
+          node-version: '12'
+          check-latest: true
+      - name: Install dependencies
+        run: npm ci
+      - name: Create environment variables
+        run: echo "SENDGRID_API_KEY='${{ secrets.SENDGRID_API_KEY }}'" > .env
+      - name: Upload emails
+        run: node .
